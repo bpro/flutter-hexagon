@@ -150,7 +150,7 @@ class HexagonGrid extends StatelessWidget {
 
           return builder.build(
             type: hexType,
-            inBounds: false,
+            inBounds: true,
             width: size.width,
             height: size.height,
             child: buildChild?.call(coordinates),
@@ -160,9 +160,9 @@ class HexagonGrid extends StatelessWidget {
 
         var edgeInsets = EdgeInsets.symmetric(
           vertical: ((hexType.isPointy ? 1 : 0) *
-              (size.height / (8 * hexType.pointyFactor(false)))),
+              (size.height / (8 * hexType.pointyFactor(true)))),
           horizontal: ((hexType.isFlat ? 1 : 0) *
-              (size.width / (8 * hexType.flatFactor(false)))),
+              (size.width / (8 * hexType.flatFactor(true)))),
         );
 
         edgeInsets += padding ?? EdgeInsets.zero;
